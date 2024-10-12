@@ -12,6 +12,8 @@ namespace ESSU_Student_Information_System
         {
             Database_Connection();
             Create_Users_Table();
+            Create_Students_Table();
+            Create_Logs_Table();
         }
 
         private string Database_Connection()
@@ -76,6 +78,52 @@ namespace ESSU_Student_Information_System
             }
         }
 
+        private void Create_Students_Table()
+        {
+            string database_connection = Database_Connection();
+
+            using (MySqlConnection conn = new MySqlConnection(database_connection))
+            {
+                conn.Open();
+
+                MySqlCommand cmd_1 = new MySqlCommand("SHOW TABLES LIKE 'students'", conn);
+
+                object result_1 = cmd_1.ExecuteScalar();
+
+                if (result_1 == null)
+                {
+                    string sql_2 = "CREATE TABLE `students` (`id` INT AUTO_INCREMENT PRIMARY KEY, `uuid` CHAR(36) NOT NULL, `student_number` VARCHAR(100) NOT NULL UNIQUE, `course` VARCHAR(100) NOT NULL, `year` VARCHAR(100) NOT NULL, `section` VARCHAR(100) NOT NULL, `first_name` VARCHAR(100) NOT NULL, `middle_name` VARCHAR(100) NOT NULL, `last_name` VARCHAR(100) NOT NULL, `birthday` VARCHAR(100) NOT NULL, `mobile_number` VARCHAR(100) NOT NULL, `email` VARCHAR(100) NOT NULL, `address` VARCHAR(100) NOT NULL, `image` VARCHAR(100) NOT NULL, `status` VARCHAR(100) NOT NULL, `created_at` VARCHAR(20) NOT NULL, `updated_at` VARCHAR(20) NOT NULL)";
+
+                    MySqlCommand cmd_2 = new MySqlCommand(sql_2, conn);
+                     
+                    cmd_2.ExecuteNonQuery();
+                }
+            }
+        }
+
+        private void Create_Logs_Table()
+        {
+            string database_connection = Database_Connection();
+
+            using (MySqlConnection conn = new MySqlConnection(database_connection))
+            {
+                conn.Open();
+
+                MySqlCommand cmd_1 = new MySqlCommand("SHOW TABLES LIKE 'logs'", conn);
+
+                object result_1 = cmd_1.ExecuteScalar();
+
+                if (result_1 == null)
+                {
+                    string sql_2 = "CREATE TABLE `logs` (`id` INT AUTO_INCREMENT PRIMARY KEY, `uuid` CHAR(36) NOT NULL, `activity` TEXT NOT NULL, `created_at` VARCHAR(20) NOT NULL, `updated_at` VARCHAR(20) NOT NULL)";
+
+                    MySqlCommand cmd_2 = new MySqlCommand(sql_2, conn);
+
+                    cmd_2.ExecuteNonQuery();
+                }
+            }
+        }
+
         private void Insert_Admin_Data()
         {
             DateTime currentDateTime = DateTime.Now;
@@ -123,35 +171,47 @@ namespace ESSU_Student_Information_System
 
                 return true;
             }
-            catch 
+            catch (Exception e)
             {
+                MessageBox.Show(e.ToString());
+
                 return false;
             }
         }
 
-        public void Update(string table_name, Dictionary<string, object> data, string column, object value)
+        public bool Update(string table_name, Dictionary<string, object> data, string column, object value)
         {
-            string database_connection = Database_Connection();
-
-            using (MySqlConnection conn = new MySqlConnection(database_connection))
+            try
             {
-                conn.Open();
+                string database_connection = Database_Connection();
 
-                var setClause = string.Join(", ", data.Keys.Select(key => $"{key} = @{key}"));
-
-                string query = $"UPDATE {table_name} SET {setClause} WHERE {column} = @value";
-
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                using (MySqlConnection conn = new MySqlConnection(database_connection))
                 {
-                    foreach (var kvp in data)
+                    conn.Open();
+
+                    var setClause = string.Join(", ", data.Keys.Select(key => $"{key} = @{key}"));
+
+                    string query = $"UPDATE {table_name} SET {setClause} WHERE {column} = @value";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@" + kvp.Key, kvp.Value ?? DBNull.Value);
+                        foreach (var kvp in data)
+                        {
+                            cmd.Parameters.AddWithValue("@" + kvp.Key, kvp.Value ?? DBNull.Value);
+                        }
+
+                        cmd.Parameters.AddWithValue("@value", value);
+
+                        cmd.ExecuteNonQuery();
                     }
-
-                    cmd.Parameters.AddWithValue("@value", value);
-
-                    cmd.ExecuteNonQuery();
                 }
+
+                return true;
+            }
+
+            catch 
+            { 
+                return false; 
             }
         }
 
@@ -212,7 +272,7 @@ namespace ESSU_Student_Information_System
             return result;
         }
 
-        public List<Dictionary<string, object>> Get_Many(string table_name, string column_name, object value)
+        public List<Dictionary<string, object>> Get_Many(string table_name, string column_name, object value, string order_by_column, string order_by_value)
         {
             string database_connection = Database_Connection();
             List<Dictionary<string, object>> results = new List<Dictionary<string, object>>();
@@ -221,7 +281,7 @@ namespace ESSU_Student_Information_System
             {
                 conn.Open();
 
-                string query = $"SELECT * FROM {table_name} WHERE {column_name} = @value";
+                string query = $"SELECT * FROM {table_name} WHERE {column_name} = @value ORDER BY `{order_by_column}` {order_by_value}";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
@@ -275,6 +335,82 @@ namespace ESSU_Student_Information_System
             }
 
             return results;
+        }
+
+        public List<Dictionary<string, object>> Search(string table_name, string column_name, object value, string order_by_column, string order_by_value)
+        {
+            string database_connection = Database_Connection();
+            List<Dictionary<string, object>> results = new List<Dictionary<string, object>>();
+
+            using (MySqlConnection conn = new MySqlConnection(database_connection))
+            {
+                conn.Open();
+
+                string query = $"SELECT * FROM {table_name} WHERE {column_name} LIKE @value ORDER BY `{order_by_column}` {order_by_value}";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@value", value + "%");
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Dictionary<string, object> row = new Dictionary<string, object>();
+
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                row.Add(reader.GetName(i), reader.GetValue(i));
+                            }
+                            results.Add(row);
+                        }
+                    }
+                }
+            }
+
+            return results;
+        }
+
+        public int Count_Items(string table_name, string column, object value)
+        {
+            string database_connection = Database_Connection();
+            int count = 0;
+
+            using (MySqlConnection conn = new MySqlConnection(database_connection))
+            {
+                conn.Open();
+
+                string query = $"SELECT COUNT(*) FROM {table_name} WHERE {column} = @value";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@value", value);
+
+                    count = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+
+            return count;
+        }
+
+        public int Count_All(string table_name)
+        {
+            string database_connection = Database_Connection();
+            int count = 0;
+
+            using (MySqlConnection conn = new MySqlConnection(database_connection))
+            {
+                conn.Open();
+
+                string query = $"SELECT COUNT(*) FROM {table_name}";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    count = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+
+            return count;
         }
     }
 }

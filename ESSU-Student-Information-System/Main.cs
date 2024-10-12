@@ -14,6 +14,15 @@ namespace ESSU_Student_Information_System
             InitializeComponent();
         }
 
+        public void More_Info()
+        {
+            Set_Active(btn_student_records);
+
+            active_page = "Student Records";
+
+            user_control_student_records.Display_Data();
+        }
+
         public void Set_Admin_Details()
         {
             Main_Model main_model = new Main_Model();
@@ -53,6 +62,8 @@ namespace ESSU_Student_Information_System
             Set_Admin_Details();
             
             Session.is_application_exiting = false;
+
+            user_control_dashboard.Display_Data();
         }
 
         private void btn_toggle_sidebar_Click(object sender, EventArgs e)
@@ -134,6 +145,8 @@ namespace ESSU_Student_Information_System
             active_page = "Dashboard";
 
             Set_Active(btn_dashboard);
+
+            user_control_dashboard.Display_Data();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -177,6 +190,10 @@ namespace ESSU_Student_Information_System
 
             if (result == DialogResult.Yes)
             {
+                Logger logger = new Logger();
+
+                logger.Log("Admin has logged out from the system.");
+
                 Hide();
 
                 MessageBox.Show("You have successfully logged out.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);

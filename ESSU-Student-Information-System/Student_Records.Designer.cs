@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Student_Records));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_temp = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btn_new_student = new System.Windows.Forms.Button();
@@ -39,7 +40,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.btn_update_student = new System.Windows.Forms.Button();
-            this.btn_delete_student = new System.Windows.Forms.Button();
+            this.btn_set_as_inactive = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.lvl_student_list = new System.Windows.Forms.ListView();
@@ -47,9 +48,10 @@
             this.student_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.course_year_section = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.birthday = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.email = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.student_number = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btn_temp = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_search = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -66,6 +68,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(927, 50);
             this.panel1.TabIndex = 4;
+            // 
+            // btn_temp
+            // 
+            this.btn_temp.Location = new System.Drawing.Point(-86, 33);
+            this.btn_temp.Name = "btn_temp";
+            this.btn_temp.Size = new System.Drawing.Size(75, 23);
+            this.btn_temp.TabIndex = 5;
+            this.btn_temp.Text = "button1";
+            this.btn_temp.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -93,10 +104,10 @@
             this.btn_new_student.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_new_student.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_new_student.ForeColor = System.Drawing.Color.White;
-            this.btn_new_student.Location = new System.Drawing.Point(18, 8);
+            this.btn_new_student.Location = new System.Drawing.Point(13, 8);
             this.btn_new_student.Name = "btn_new_student";
             this.btn_new_student.Size = new System.Drawing.Size(150, 35);
-            this.btn_new_student.TabIndex = 3;
+            this.btn_new_student.TabIndex = 1;
             this.btn_new_student.Text = "&New Student";
             this.btn_new_student.UseVisualStyleBackColor = false;
             this.btn_new_student.Click += new System.EventHandler(this.btn_new_student_Click);
@@ -142,7 +153,7 @@
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel10.Controls.Add(this.btn_update_student);
-            this.panel10.Controls.Add(this.btn_delete_student);
+            this.panel10.Controls.Add(this.btn_set_as_inactive);
             this.panel10.Controls.Add(this.panel11);
             this.panel10.Controls.Add(this.lvl_student_list);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -156,6 +167,7 @@
             this.btn_update_student.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_update_student.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(135)))), ((int)(((byte)(84)))));
             this.btn_update_student.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_update_student.Enabled = false;
             this.btn_update_student.FlatAppearance.BorderSize = 0;
             this.btn_update_student.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_update_student.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -163,29 +175,34 @@
             this.btn_update_student.Location = new System.Drawing.Point(574, 336);
             this.btn_update_student.Name = "btn_update_student";
             this.btn_update_student.Size = new System.Drawing.Size(150, 35);
-            this.btn_update_student.TabIndex = 5;
+            this.btn_update_student.TabIndex = 2;
             this.btn_update_student.Text = "&Update Student";
             this.btn_update_student.UseVisualStyleBackColor = false;
+            this.btn_update_student.Click += new System.EventHandler(this.btn_update_student_Click);
             // 
-            // btn_delete_student
+            // btn_set_as_inactive
             // 
-            this.btn_delete_student.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_delete_student.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
-            this.btn_delete_student.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_delete_student.FlatAppearance.BorderSize = 0;
-            this.btn_delete_student.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_delete_student.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_delete_student.ForeColor = System.Drawing.Color.White;
-            this.btn_delete_student.Location = new System.Drawing.Point(730, 336);
-            this.btn_delete_student.Name = "btn_delete_student";
-            this.btn_delete_student.Size = new System.Drawing.Size(150, 35);
-            this.btn_delete_student.TabIndex = 4;
-            this.btn_delete_student.Text = "&Delete Student";
-            this.btn_delete_student.UseVisualStyleBackColor = false;
+            this.btn_set_as_inactive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_set_as_inactive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.btn_set_as_inactive.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_set_as_inactive.Enabled = false;
+            this.btn_set_as_inactive.FlatAppearance.BorderSize = 0;
+            this.btn_set_as_inactive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_set_as_inactive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_set_as_inactive.ForeColor = System.Drawing.Color.White;
+            this.btn_set_as_inactive.Location = new System.Drawing.Point(730, 336);
+            this.btn_set_as_inactive.Name = "btn_set_as_inactive";
+            this.btn_set_as_inactive.Size = new System.Drawing.Size(150, 35);
+            this.btn_set_as_inactive.TabIndex = 3;
+            this.btn_set_as_inactive.Text = "&Set As Inactive";
+            this.btn_set_as_inactive.UseVisualStyleBackColor = false;
+            this.btn_set_as_inactive.Click += new System.EventHandler(this.btn_set_as_inactive_Click);
             // 
             // panel11
             // 
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel11.Controls.Add(this.txt_search);
+            this.panel11.Controls.Add(this.label2);
             this.panel11.Controls.Add(this.label11);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(0, 0);
@@ -214,10 +231,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lvl_student_list.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.id,
+            this.student_number,
             this.student_name,
             this.course_year_section,
             this.birthday,
-            this.email,
             this.status});
             this.lvl_student_list.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvl_student_list.FullRowSelect = true;
@@ -229,6 +246,8 @@
             this.lvl_student_list.TabIndex = 2;
             this.lvl_student_list.UseCompatibleStateImageBehavior = false;
             this.lvl_student_list.View = System.Windows.Forms.View.Details;
+            this.lvl_student_list.Click += new System.EventHandler(this.lvl_student_list_Click);
+            this.lvl_student_list.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lvl_student_list_MouseDown);
             // 
             // id
             // 
@@ -253,25 +272,38 @@
             this.birthday.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.birthday.Width = 160;
             // 
-            // email
+            // student_number
             // 
-            this.email.Text = "Email";
-            this.email.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.email.Width = 160;
+            this.student_number.Text = "Student Number";
+            this.student_number.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.student_number.Width = 160;
             // 
             // status
             // 
             this.status.Text = "Status";
             this.status.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btn_temp
+            // label2
             // 
-            this.btn_temp.Location = new System.Drawing.Point(-86, 33);
-            this.btn_temp.Name = "btn_temp";
-            this.btn_temp.Size = new System.Drawing.Size(75, 23);
-            this.btn_temp.TabIndex = 5;
-            this.btn_temp.Text = "button1";
-            this.btn_temp.UseVisualStyleBackColor = true;
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(503, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(130, 20);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Student Number:";
+            // 
+            // txt_search
+            // 
+            this.txt_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_search.Location = new System.Drawing.Point(639, 6);
+            this.txt_search.Name = "txt_search";
+            this.txt_search.Size = new System.Drawing.Size(240, 26);
+            this.txt_search.TabIndex = 0;
+            this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
             // 
             // Student_Records
             // 
@@ -311,13 +343,15 @@
         private System.Windows.Forms.ColumnHeader student_name;
         private System.Windows.Forms.ColumnHeader course_year_section;
         private System.Windows.Forms.ColumnHeader birthday;
-        private System.Windows.Forms.ColumnHeader email;
+        private System.Windows.Forms.ColumnHeader student_number;
         private System.Windows.Forms.ColumnHeader status;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btn_update_student;
-        private System.Windows.Forms.Button btn_delete_student;
+        private System.Windows.Forms.Button btn_set_as_inactive;
         private System.Windows.Forms.Button btn_temp;
+        private System.Windows.Forms.TextBox txt_search;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -119,6 +119,7 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Logger.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,11 +135,11 @@
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Main_Model.cs" />
-    <Compile Include="New_Student.cs">
+    <Compile Include="Student_Details.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="New_Student.Designer.cs">
-      <DependentUpon>New_Student.cs</DependentUpon>
+    <Compile Include="Student_Details.Designer.cs">
+      <DependentUpon>Student_Details.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -168,8 +169,8 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="New_Student.resx">
-      <DependentUpon>New_Student.cs</DependentUpon>
+    <EmbeddedResource Include="Student_Details.resx">
+      <DependentUpon>Student_Details.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

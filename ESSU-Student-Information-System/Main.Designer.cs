@@ -597,9 +597,6 @@
         private System.Windows.Forms.PictureBox dashboard_img;
         private System.Windows.Forms.Label dashboard_lbl;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel btn_student_records;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label4;
@@ -620,5 +617,8 @@
         private Student_Records user_control_student_records;
         private Account_Settings user_control_account_settings;
         private System.Windows.Forms.Label lbl_admin_name;
+        private System.Windows.Forms.Panel btn_student_records;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

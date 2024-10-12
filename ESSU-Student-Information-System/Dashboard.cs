@@ -10,6 +10,29 @@ namespace ESSU_Student_Information_System
             InitializeComponent();
         }
 
+        public void Display_Data()
+        {
+            Database_Model database_model = new Database_Model();
+
+            lbl_registered_students.Text = database_model.Count_All("students").ToString();
+            lbl_active_students.Text = database_model.Count_Items("students", "status", "Active").ToString();
+            lbl_non_active_students.Text = database_model.Count_Items("students", "status", "Inactive").ToString();
+
+            var logs = database_model.Get_All("logs", "id", "DESC");
+
+            lv_recent_activities.Items.Clear();
+
+            foreach (var log in logs)
+            {
+                ListViewItem item = new ListViewItem(log["id"].ToString());
+
+                item.SubItems.Add(Convert.ToDateTime(log["created_at"]).ToString("MMMM dd, yyyy hh:mm tt"));
+                item.SubItems.Add(log["activity"].ToString());
+
+                lv_recent_activities.Items.Add(item);
+            }
+        }
+
         private void Center_Control(Control my_control, String dimension)
         {
             if (dimension == "horizontal")
@@ -44,6 +67,13 @@ namespace ESSU_Student_Information_System
                 lv_recent_activities.Columns[1].Width = secondColumnWidth;
                 lv_recent_activities.Columns[2].Width = thirdColumnWidth;
             }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            Main main = FindForm() as Main;
+
+            main.More_Info();
         }
     }
 }

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-using System.Xml.Linq;
 
 namespace ESSU_Student_Information_System
 {
@@ -68,6 +66,40 @@ namespace ESSU_Student_Information_System
             }
 
             return response;
+        }
+
+        public bool Mod_Update_Student(string id, string student_number, string course, string year, string section, string first_name, string middle_name, string last_name, string birthday, string mobile_number, string email, string address, string image)
+        {
+            Database_Model database_model = new Database_Model();
+
+            DateTime currentDateTime = DateTime.Now;
+
+            Dictionary<string, object> data = new Dictionary<string, object>
+            {
+                { "student_number", student_number },
+                { "course", course },
+                { "year", year },
+                { "section", section },
+                { "first_name", first_name },
+                { "middle_name", middle_name },
+                { "last_name", last_name },
+                { "birthday", birthday },
+                { "mobile_number", mobile_number },
+                { "email", email },
+                { "address", address },
+                { "image", image },
+                { "updated_at", currentDateTime }
+            };
+
+            if (database_model.Update("students", data, "id", id))
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
         }
     }
 }

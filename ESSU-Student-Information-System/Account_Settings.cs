@@ -132,6 +132,10 @@ namespace ESSU_Student_Information_System
 
                 main.Set_Admin_Details();
 
+                Logger logger = new Logger();
+
+                logger.Log("Admin data is successfully updated.");
+
                 MessageBox.Show("Admin data is successfully updated!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

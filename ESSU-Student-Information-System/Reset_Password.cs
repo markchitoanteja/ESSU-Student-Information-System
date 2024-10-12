@@ -91,6 +91,10 @@ namespace ESSU_Student_Information_System
 
                     string temporary_password = Generate_Password(8);
 
+                    Logger logger = new Logger();
+
+                    logger.Log("Admmin has reset it's password.");
+
                     MessageBox.Show("Please use this temporary password: " + temporary_password, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     Session.temporary_password = temporary_password;

@@ -1,6 +1,6 @@
 ﻿namespace ESSU_Student_Information_System
 {
-    partial class New_Student
+    partial class Student_Details
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(New_Student));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Student_Details));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lbl_student_details_title = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_submit = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.pnl_body = new System.Windows.Forms.Panel();
+            this.lbl_student_id = new System.Windows.Forms.Label();
             this.btn_temp = new System.Windows.Forms.Button();
             this.txt_address = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -91,25 +92,25 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.lbl_student_details_title);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(798, 40);
             this.panel1.TabIndex = 0;
             // 
-            // label11
+            // lbl_student_details_title
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label11.Location = new System.Drawing.Point(16, 7);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(145, 25);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "New Student";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_student_details_title.AutoSize = true;
+            this.lbl_student_details_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_student_details_title.ForeColor = System.Drawing.Color.Black;
+            this.lbl_student_details_title.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_student_details_title.Location = new System.Drawing.Point(16, 7);
+            this.lbl_student_details_title.Name = "lbl_student_details_title";
+            this.lbl_student_details_title.Size = new System.Drawing.Size(145, 25);
+            this.lbl_student_details_title.TabIndex = 1;
+            this.lbl_student_details_title.Text = "New Student";
+            this.lbl_student_details_title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel2
             // 
@@ -158,6 +159,7 @@
             // 
             this.pnl_body.BackColor = System.Drawing.Color.White;
             this.pnl_body.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_body.Controls.Add(this.lbl_student_id);
             this.pnl_body.Controls.Add(this.btn_temp);
             this.pnl_body.Controls.Add(this.txt_address);
             this.pnl_body.Controls.Add(this.label12);
@@ -188,6 +190,16 @@
             this.pnl_body.Name = "pnl_body";
             this.pnl_body.Size = new System.Drawing.Size(798, 458);
             this.pnl_body.TabIndex = 2;
+            // 
+            // lbl_student_id
+            // 
+            this.lbl_student_id.AutoSize = true;
+            this.lbl_student_id.Location = new System.Drawing.Point(18, 133);
+            this.lbl_student_id.Name = "lbl_student_id";
+            this.lbl_student_id.Size = new System.Drawing.Size(58, 13);
+            this.lbl_student_id.TabIndex = 33;
+            this.lbl_student_id.Text = "Student ID";
+            this.lbl_student_id.Visible = false;
             // 
             // btn_temp
             // 
@@ -498,7 +510,7 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // New_Student
+            // Student_Details
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -509,7 +521,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "New_Student";
+            this.Name = "Student_Details";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panel1.ResumeLayout(false);
@@ -537,7 +549,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel pnl_body;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lbl_student_details_title;
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Button btn_submit;
         private System.Windows.Forms.PictureBox img_image;
@@ -576,5 +588,6 @@
         private System.Windows.Forms.ErrorProvider error_last_name;
         private System.Windows.Forms.ErrorProvider error_address;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lbl_student_id;
     }
 }

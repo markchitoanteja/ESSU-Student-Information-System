@@ -61,14 +61,14 @@ namespace ESSU_Student_Information_System
 
                 int errors = 0;
 
-                if (String.IsNullOrEmpty(txt_username.Text))
+                if (string.IsNullOrEmpty(txt_username.Text))
                 {
                     err_username.SetError(txt_username, "Username is required!");
 
                     errors++;
                 }
 
-                if (String.IsNullOrEmpty(txt_password.Text))
+                if (string.IsNullOrEmpty(txt_password.Text))
                 {
                     err_password.SetError(txt_password, "Password is required!");
 
@@ -117,6 +117,10 @@ namespace ESSU_Student_Information_System
                 {
                     Hide();
 
+                    Logger logger = new Logger();
+
+                    logger.Log("Admin has successfully logged in to the system.");
+
                     MessageBox.Show("Login Successful!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     if (chk_remember_me.Checked)
@@ -124,6 +128,7 @@ namespace ESSU_Student_Information_System
                         Session.remember_me_data["username"] = txt_username.Text;
                         Session.remember_me_data["password"] = txt_password.Text;
                     }
+
                     else
                     {
                         Session.remember_me_data.Clear();
@@ -133,6 +138,7 @@ namespace ESSU_Student_Information_System
 
                     main.Show();
                 }
+
                 else
                 {
                     is_loading = false;

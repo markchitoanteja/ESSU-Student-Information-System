@@ -5,19 +5,50 @@ using System.Windows.Forms;
 
 namespace ESSU_Student_Information_System
 {
-    public partial class New_Student : Form
+    public partial class Student_Details : Form
     {
         private Student_Records _student_records;
 
         private int loading_counter;
         private bool is_loading = false;
         private string image_path;
+        private bool is_update_student = false;
+        private bool is_new_image = false;
         
-        public New_Student(Student_Records student_records)
+        public Student_Details(Student_Records student_records)
         {
             InitializeComponent();
 
             _student_records = student_records;
+        }
+
+        public void Display_Student_Details(string student_id)
+        {
+            is_update_student = true;
+
+            lbl_student_details_title.Text = "Update Student";
+
+            Database_Model database_model = new Database_Model();
+
+            var student_data = database_model.Get_One("students", "id", student_id);
+
+            string imageFolderPath = Path.Combine(Application.StartupPath, "images", "uploads");
+
+            image_path = Path.Combine(imageFolderPath, student_data["image"].ToString());
+
+            lbl_student_id.Text = student_data["id"].ToString();
+            img_image.Image = Image.FromFile(image_path);
+            txt_student_number.Text = student_data["student_number"].ToString();
+            txt_course.Text = student_data["course"].ToString();
+            txt_year.Text = student_data["year"].ToString();
+            txt_section.Text = student_data["section"].ToString();
+            txt_first_name.Text = student_data["first_name"].ToString();
+            txt_middle_name.Text = student_data["middle_name"].ToString();
+            txt_last_name.Text = student_data["last_name"].ToString();
+            txt_birthday.Value = Convert.ToDateTime(student_data["birthday"].ToString());
+            txt_mobile_number.Text = student_data["mobile_number"].ToString();
+            txt_email.Text = student_data["email"].ToString();
+            txt_address.Text = student_data["address"].ToString();
         }
 
         private string Upload_Image(string image_path)
@@ -178,7 +209,6 @@ namespace ESSU_Student_Information_System
                     }
                 }
             }
-
         }
 
         private void txt_student_number_KeyPress(object sender, KeyPressEventArgs e)
@@ -247,6 +277,11 @@ namespace ESSU_Student_Information_System
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
+                if (is_update_student)
+                {
+                    is_new_image = true;
+                }
+
                 img_image.Image = Image.FromFile(openFileDialog.FileName);
 
                 image_path = openFileDialog.FileName;
@@ -263,28 +298,74 @@ namespace ESSU_Student_Information_System
 
                 timer1.Stop();
 
-                string image = Upload_Image(image_path);
-
                 Main_Model main_model = new Main_Model();
 
-                if (main_model.Mod_Insert_Student(txt_student_number.Text, txt_course.Text, txt_year.Text, txt_section.Text, txt_first_name.Text, txt_middle_name.Text, txt_last_name.Text, txt_birthday.Text, txt_mobile_number.Text, txt_email.Text, txt_address.Text, image))
+                if (!is_update_student)
                 {
-                    _student_records.Display_Data();
+                    string image = Upload_Image(image_path);
 
-                    Hide();
+                    if (main_model.Mod_Insert_Student(txt_student_number.Text, txt_course.Text, txt_year.Text, txt_section.Text, txt_first_name.Text, txt_middle_name.Text, txt_last_name.Text, txt_birthday.Text, txt_mobile_number.Text, txt_email.Text, txt_address.Text, image))
+                    {
+                        _student_records.Display_Data();
 
-                    MessageBox.Show("A new student is added to the database.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Logger logger = new Logger();
 
-                    Close();
+                        logger.Log("A new student is added to the database.");
+
+                        Hide();
+
+                        MessageBox.Show("A new student is added to the database.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        Close();
+                    }
+
+                    else
+                    {
+                        btn_submit.Text = "&Submit";
+
+                        error_student_number.SetError(txt_student_number, "Student Number is already in use!");
+
+                        txt_student_number.Focus();
+                    }
                 }
 
                 else
                 {
-                    btn_submit.Text = "&Submit";
+                    string image;
 
-                    error_student_number.SetError(txt_student_number, "Student Number is already in use!");
-                    
-                    txt_student_number.Focus();
+                    if (is_new_image)
+                    {
+                        image = Upload_Image(image_path);
+                    }
+
+                    else
+                    {
+                        image = Path.GetFileName(image_path);
+                    }
+
+                    if (main_model.Mod_Update_Student(lbl_student_id.Text, txt_student_number.Text, txt_course.Text, txt_year.Text, txt_section.Text, txt_first_name.Text, txt_middle_name.Text, txt_last_name.Text, txt_birthday.Text, txt_mobile_number.Text, txt_email.Text, txt_address.Text, image))
+                    {
+                        _student_records.Display_Data();
+
+                        Logger logger = new Logger();
+
+                        logger.Log("A student has been updated.");
+
+                        Hide();
+
+                        MessageBox.Show("A student has been updated.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        Close();
+                    }
+
+                    else
+                    {
+                        btn_submit.Text = "&Submit";
+
+                        error_student_number.SetError(txt_student_number, "Student Number is already in use!");
+
+                        txt_student_number.Focus();
+                    }
                 }
             }
         }
