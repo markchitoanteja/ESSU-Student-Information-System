@@ -18,7 +18,7 @@ namespace ESSU_Student_Information_System
         {
             Database_Model database_model = new Database_Model();
 
-            var students = database_model.Get_All("students", "id", "DESC");
+            var students = database_model.Get_Many("students", "status", "Deleted", "id", "DESC", "!=");
 
             lvl_student_list.Items.Clear();
 
@@ -82,6 +82,7 @@ namespace ESSU_Student_Information_System
 
                 btn_update_student.Enabled = false;
                 btn_set_as_inactive.Enabled = false;
+                btn_delete.Enabled = false;
             }
         }
 
@@ -111,6 +112,7 @@ namespace ESSU_Student_Information_System
 
                 btn_update_student.Enabled = false;
                 btn_set_as_inactive.Enabled = false;
+                btn_delete.Enabled = false;
 
                 Logger logger = new Logger();
 
@@ -130,12 +132,14 @@ namespace ESSU_Student_Information_System
             {
                 btn_update_student.Enabled = true;
                 btn_set_as_inactive.Enabled = true;
+                btn_delete.Enabled = true;
             }
 
             else
             {
                 btn_update_student.Enabled = false;
                 btn_set_as_inactive.Enabled = false;
+                btn_delete.Enabled = false;
 
                 DialogResult dialog_result = MessageBox.Show("Set this student to active again?", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -191,7 +195,7 @@ namespace ESSU_Student_Information_System
             {
                 Database_Model database_model = new Database_Model();
 
-                var students = database_model.Search("students", "student_number", txt_search.Text, "first_name", "ASC");
+                var students = database_model.Search("students", "student_number", txt_search.Text, "status", "Deleted", "first_name", "ASC", "!=");
 
                 lvl_student_list.Items.Clear();
 
@@ -213,6 +217,41 @@ namespace ESSU_Student_Information_System
 
                     lvl_student_list.Items.Add(item);
                 }
+            }
+        }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog_result = MessageBox.Show("Do you want to DELETE this student?", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dialog_result == DialogResult.Yes)
+            {
+                Database_Model database_model = new Database_Model();
+
+                DateTime currentDateTime = DateTime.Now;
+
+                Dictionary<string, object> data = new Dictionary<string, object>
+                {
+                    { "status", "Deleted" },
+                    { "updated_at", currentDateTime }
+                };
+
+                database_model.Update("students", data, "id", student_id);
+
+                Display_Data();
+
+                lvl_student_list.SelectedItems.Clear();
+
+                student_id = null;
+
+                btn_update_student.Enabled = false;
+                btn_set_as_inactive.Enabled = false;
+
+                Logger logger = new Logger();
+
+                logger.Log("A student has been moved to deleted students.");
+
+                MessageBox.Show("A student has been moved to deleted students.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

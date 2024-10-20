@@ -49,3 +49,4 @@ C:\Users\00ant\Documents\Visual Studio 2022\Projects\ESSU-Student-Information-Sy
 C:\Users\00ant\Documents\Visual Studio 2022\Projects\ESSU-Student-Information-System\ESSU-Student-Information-System\obj\Debug\ESSU Student Information System.exe
 C:\Users\00ant\Documents\Visual Studio 2022\Projects\ESSU-Student-Information-System\ESSU-Student-Information-System\obj\Debug\ESSU Student Information System.pdb
 C:\Users\00ant\Documents\Visual Studio 2022\Projects\ESSU-Student-Information-System\ESSU-Student-Information-System\obj\Debug\ESSU_Student_Information_System.Student_Details.resources
+C:\Users\00ant\Documents\Visual Studio 2022\Projects\ESSU-Student-Information-System\ESSU-Student-Information-System\obj\Debug\ESSU_Student_Information_System.Deleted_Students.resources

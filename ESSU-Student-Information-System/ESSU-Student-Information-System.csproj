@@ -119,6 +119,12 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Deleted_Students.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Deleted_Students.Designer.cs">
+      <DependentUpon>Deleted_Students.cs</DependentUpon>
+    </Compile>
     <Compile Include="Logger.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deleted_Students.resx">
+      <DependentUpon>Deleted_Students.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

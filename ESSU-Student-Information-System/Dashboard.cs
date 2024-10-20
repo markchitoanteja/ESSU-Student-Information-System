@@ -75,5 +75,23 @@ namespace ESSU_Student_Information_System
 
             main.More_Info();
         }
+
+        private void btn_clear_all_Click(object sender, EventArgs e)
+        {
+            btn_temp.Focus();
+
+            DialogResult dialog_result = MessageBox.Show("Do you want to clear all the recent activities?", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dialog_result == DialogResult.Yes)
+            {
+                Database_Model database_model = new Database_Model();
+
+                database_model.Delete("logs");
+
+                Display_Data();
+
+                MessageBox.Show("Recent Activities has been cleared.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }

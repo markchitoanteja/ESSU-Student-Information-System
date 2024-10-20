@@ -62,6 +62,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lbl_active_students = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.btn_clear_all = new System.Windows.Forms.Button();
+            this.btn_temp = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -76,10 +79,12 @@
             this.pnl_active_students.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btn_temp);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -186,6 +191,7 @@
             // panel11
             // 
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel11.Controls.Add(this.panel12);
             this.panel11.Controls.Add(this.label11);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(0, 0);
@@ -435,6 +441,40 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Active Students";
             // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.btn_clear_all);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel12.Location = new System.Drawing.Point(805, 0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(78, 38);
+            this.panel12.TabIndex = 5;
+            // 
+            // btn_clear_all
+            // 
+            this.btn_clear_all.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.btn_clear_all.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_clear_all.FlatAppearance.BorderSize = 0;
+            this.btn_clear_all.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_clear_all.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_clear_all.ForeColor = System.Drawing.Color.White;
+            this.btn_clear_all.Image = ((System.Drawing.Image)(resources.GetObject("btn_clear_all.Image")));
+            this.btn_clear_all.Location = new System.Drawing.Point(9, 4);
+            this.btn_clear_all.Name = "btn_clear_all";
+            this.btn_clear_all.Size = new System.Drawing.Size(50, 30);
+            this.btn_clear_all.TabIndex = 1;
+            this.btn_clear_all.UseVisualStyleBackColor = false;
+            this.btn_clear_all.Click += new System.EventHandler(this.btn_clear_all_Click);
+            // 
+            // btn_temp
+            // 
+            this.btn_temp.Location = new System.Drawing.Point(287, -40);
+            this.btn_temp.Name = "btn_temp";
+            this.btn_temp.Size = new System.Drawing.Size(75, 23);
+            this.btn_temp.TabIndex = 3;
+            this.btn_temp.Text = "button1";
+            this.btn_temp.UseVisualStyleBackColor = true;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -470,6 +510,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel12.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -509,5 +550,8 @@
         private System.Windows.Forms.ColumnHeader id;
         private System.Windows.Forms.ColumnHeader date_and_time;
         private System.Windows.Forms.ColumnHeader activity;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Button btn_clear_all;
+        private System.Windows.Forms.Button btn_temp;
     }
 }

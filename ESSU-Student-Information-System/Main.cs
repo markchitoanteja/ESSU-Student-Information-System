@@ -38,6 +38,7 @@ namespace ESSU_Student_Information_System
             btn_dashboard.BackColor = Color.Transparent;
             btn_student_records.BackColor = Color.Transparent;
             btn_account_settings.BackColor = Color.Transparent;
+            btn_deleted_students.BackColor = Color.Transparent;
 
             sidebar_button.BackColor = Color.FromArgb(13, 110, 253);
 
@@ -54,6 +55,11 @@ namespace ESSU_Student_Information_System
             if (sidebar_button.Name == "btn_account_settings")
             {
                 user_control_account_settings.BringToFront();
+            }
+
+            if (sidebar_button.Name == "btn_deleted_students")
+            {
+                user_control_deleted_students.BringToFront();
             }
         }
 
@@ -114,32 +120,6 @@ namespace ESSU_Student_Information_System
             }
         }
 
-        private void pictureBox2_MouseEnter(object sender, EventArgs e)
-        {
-            if (active_page != "Account Settings")
-            {
-                btn_account_settings.BackColor = Color.FromArgb(69, 77, 85);
-            }
-        }
-
-        private void pictureBox2_MouseLeave(object sender, EventArgs e)
-        {
-            if (active_page != "Account Settings")
-            {
-                btn_account_settings.BackColor = Color.Transparent;
-            }
-        }
-
-        private void pictureBox4_MouseEnter(object sender, EventArgs e)
-        {
-            btn_logout.BackColor = Color.FromArgb(69, 77, 85);
-        }
-
-        private void pictureBox4_MouseLeave(object sender, EventArgs e)
-        {
-            btn_logout.BackColor = Color.Transparent;
-        }
-
         private void dashboard_img_Click(object sender, EventArgs e)
         {
             active_page = "Dashboard";
@@ -156,6 +136,43 @@ namespace ESSU_Student_Information_System
             active_page = "Student Records";
 
             user_control_student_records.Display_Data();
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!Session.is_application_exiting)
+            {
+                Session.is_application_exiting = true;
+
+                DialogResult result = MessageBox.Show("Do you really want to exit application?", "Exit Application", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.No)
+                {
+                    Session.is_application_exiting = false;
+
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            }
+        }
+
+        private void pictureBox2_MouseEnter(object sender, EventArgs e)
+        {
+            if (active_page != "Account Settings")
+            {
+                btn_account_settings.BackColor = Color.FromArgb(69, 77, 85);
+            }
+        }
+
+        private void pictureBox2_MouseLeave(object sender, EventArgs e)
+        {
+            if (active_page != "Account Settings")
+            {
+                btn_account_settings.BackColor = Color.Transparent;
+            }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -180,6 +197,16 @@ namespace ESSU_Student_Information_System
             Set_Active(btn_account_settings);
 
             active_page = "Account Settings";
+        }
+
+        private void pictureBox4_MouseEnter(object sender, EventArgs e)
+        {
+            btn_logout.BackColor = Color.FromArgb(69, 77, 85);
+        }
+
+        private void pictureBox4_MouseLeave(object sender, EventArgs e)
+        {
+            btn_logout.BackColor = Color.Transparent;
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -210,25 +237,29 @@ namespace ESSU_Student_Information_System
             }
         }
 
-        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        private void pictureBox5_MouseEnter(object sender, EventArgs e)
         {
-            if (!Session.is_application_exiting)
+            if (active_page != "Deleted Students")
             {
-                Session.is_application_exiting = true;
-
-                DialogResult result = MessageBox.Show("Do you really want to exit application?", "Exit Application", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.No)
-                {
-                    Session.is_application_exiting = false;
-
-                    e.Cancel = true;
-                }
-                else
-                {
-                    Application.Exit();
-                }
+                btn_deleted_students.BackColor = Color.FromArgb(69, 77, 85);
             }
+        }
+
+        private void pictureBox5_MouseLeave(object sender, EventArgs e)
+        {
+            if (active_page != "Deleted Students")
+            {
+                btn_deleted_students.BackColor = Color.Transparent;
+            }
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            Set_Active(btn_deleted_students);
+
+            user_control_deleted_students.Display_Data();
+
+            active_page = "Deleted Students";
         }
     }
 }

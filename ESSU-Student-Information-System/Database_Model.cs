@@ -95,7 +95,7 @@ namespace ESSU_Student_Information_System
                     string sql_2 = "CREATE TABLE `students` (`id` INT AUTO_INCREMENT PRIMARY KEY, `uuid` CHAR(36) NOT NULL, `student_number` VARCHAR(100) NOT NULL UNIQUE, `course` VARCHAR(100) NOT NULL, `year` VARCHAR(100) NOT NULL, `section` VARCHAR(100) NOT NULL, `first_name` VARCHAR(100) NOT NULL, `middle_name` VARCHAR(100) NOT NULL, `last_name` VARCHAR(100) NOT NULL, `birthday` VARCHAR(100) NOT NULL, `mobile_number` VARCHAR(100) NOT NULL, `email` VARCHAR(100) NOT NULL, `address` VARCHAR(100) NOT NULL, `image` VARCHAR(100) NOT NULL, `status` VARCHAR(100) NOT NULL, `created_at` VARCHAR(20) NOT NULL, `updated_at` VARCHAR(20) NOT NULL)";
 
                     MySqlCommand cmd_2 = new MySqlCommand(sql_2, conn);
-                     
+
                     cmd_2.ExecuteNonQuery();
                 }
             }
@@ -209,13 +209,13 @@ namespace ESSU_Student_Information_System
                 return true;
             }
 
-            catch 
-            { 
-                return false; 
+            catch
+            {
+                return false;
             }
         }
 
-        public void Delete(string table_name, string column, object value)
+        public void Delete(string table_name, string column = null, object value = null)
         {
             string database_connection = Database_Connection();
 
@@ -225,11 +225,25 @@ namespace ESSU_Student_Information_System
                 {
                     conn.Open();
 
-                    string query = $"DELETE FROM {table_name} WHERE {column} = @value";
+                    string query;
+                    
+                    if (column != null && value != null)
+                    {
+                        query = $"DELETE FROM {table_name} WHERE {column} = @value";
+                    }
+
+                    else
+                    {
+                        query = $"DELETE FROM {table_name}";
+                    }
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@value", value);
+                        if (column != null && value != null)
+                        {
+                            cmd.Parameters.AddWithValue("@value", value);
+                        }
+
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -272,7 +286,7 @@ namespace ESSU_Student_Information_System
             return result;
         }
 
-        public List<Dictionary<string, object>> Get_Many(string table_name, string column_name, object value, string order_by_column, string order_by_value)
+        public List<Dictionary<string, object>> Get_Many(string table_name, string column_name, object value, string order_by_column, string order_by_value, string operation = "=", string optional_column_name = null, object optional_value = null)
         {
             string database_connection = Database_Connection();
             List<Dictionary<string, object>> results = new List<Dictionary<string, object>>();
@@ -281,11 +295,23 @@ namespace ESSU_Student_Information_System
             {
                 conn.Open();
 
-                string query = $"SELECT * FROM {table_name} WHERE {column_name} = @value ORDER BY `{order_by_column}` {order_by_value}";
+                string query = $"SELECT * FROM {table_name} WHERE {column_name} {operation} @value";
+
+                if (optional_value != null && optional_column_name != null)
+                {
+                    query += $" AND {optional_column_name} = @optional_value";
+                }
+
+                query += $" ORDER BY `{order_by_column}` {order_by_value}";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@value", value);
+
+                    if (optional_value != null && optional_column_name != null)
+                    {
+                        cmd.Parameters.AddWithValue("@optional_value", optional_value);
+                    }
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -337,7 +363,7 @@ namespace ESSU_Student_Information_System
             return results;
         }
 
-        public List<Dictionary<string, object>> Search(string table_name, string column_name, object value, string order_by_column, string order_by_value)
+        public List<Dictionary<string, object>> Search(string table_name, string column_name, object value, string second_column_name, object second_value, string order_by_column, string order_by_value, string operation="=")
         {
             string database_connection = Database_Connection();
             List<Dictionary<string, object>> results = new List<Dictionary<string, object>>();
@@ -346,11 +372,12 @@ namespace ESSU_Student_Information_System
             {
                 conn.Open();
 
-                string query = $"SELECT * FROM {table_name} WHERE {column_name} LIKE @value ORDER BY `{order_by_column}` {order_by_value}";
+                string query = $"SELECT * FROM {table_name} WHERE {column_name} LIKE @value AND {second_column_name} {operation} @second_value ORDER BY `{order_by_column}` {order_by_value}";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@value", value + "%");
+                    cmd.Parameters.AddWithValue("@second_value", second_value);
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
