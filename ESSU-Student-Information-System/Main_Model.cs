@@ -32,7 +32,7 @@ namespace ESSU_Student_Information_System
             database_model.Update("users", user_data, "id", id);
         }
 
-        public bool Mod_Insert_Student(string student_number, string course, string year, string section, string first_name, string middle_name, string last_name, string birthday, string mobile_number, string email, string address, string image)
+        public bool Mod_Insert_Student(string student_number, string course, string year, string section, string first_name, string middle_name, string last_name, string birthday, string mobile_number, string email, string address, string guardian_name, string guardian_mobile_number, string guardian_email, string image)
         {
             bool response = false;
 
@@ -54,6 +54,9 @@ namespace ESSU_Student_Information_System
                 { "mobile_number", mobile_number },
                 { "email", email },
                 { "address", address },
+                { "guardian_name", guardian_name },
+                { "guardian_mobile_number", guardian_mobile_number },
+                { "guardian_email", guardian_email },
                 { "image", image },
                 { "status", "Active" },
                 { "created_at", currentDateTime },
@@ -68,7 +71,7 @@ namespace ESSU_Student_Information_System
             return response;
         }
 
-        public bool Mod_Update_Student(string id, string student_number, string course, string year, string section, string first_name, string middle_name, string last_name, string birthday, string mobile_number, string email, string address, string image)
+        public bool Mod_Update_Student(string id, string student_number, string course, string year, string section, string first_name, string middle_name, string last_name, string birthday, string mobile_number, string email, string address, string guardian_name, string guardian_mobile_number, string guardian_email, string image)
         {
             Database_Model database_model = new Database_Model();
 
@@ -87,6 +90,9 @@ namespace ESSU_Student_Information_System
                 { "mobile_number", mobile_number },
                 { "email", email },
                 { "address", address },
+                { "guardian_name", guardian_name },
+                { "guardian_mobile_number", guardian_mobile_number },
+                { "guardian_email", guardian_email },
                 { "image", image },
                 { "updated_at", currentDateTime }
             };

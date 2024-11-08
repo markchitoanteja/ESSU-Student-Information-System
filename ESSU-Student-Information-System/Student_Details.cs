@@ -49,6 +49,9 @@ namespace ESSU_Student_Information_System
             txt_mobile_number.Text = student_data["mobile_number"].ToString();
             txt_email.Text = student_data["email"].ToString();
             txt_address.Text = student_data["address"].ToString();
+            txt_guardian_name.Text = student_data["guardian_name"].ToString();
+            txt_guardian_mobile_number.Text = student_data["guardian_mobile_number"].ToString();
+            txt_guardian_email.Text = student_data["guardian_email"].ToString();
         }
 
         private string Upload_Image(string image_path)
@@ -148,6 +151,27 @@ namespace ESSU_Student_Information_System
 
                 is_error = true;
             }
+            
+            if (string.IsNullOrEmpty(txt_guardian_name.Text))
+            {
+                error_guardian_name.SetError(txt_guardian_name, "Guardian Name is required!");
+
+                is_error = true;
+            }
+            
+            if (string.IsNullOrEmpty(txt_guardian_mobile_number.Text))
+            {
+                error_guardian_mobile_number.SetError(txt_guardian_mobile_number, "Guardian Mobile Number is required!");
+
+                is_error = true;
+            }
+
+            if (string.IsNullOrEmpty(txt_guardian_email.Text))
+            {
+                error_guardian_email.SetError(txt_guardian_email, "Guardian Email is required!");
+
+                is_error = true;
+            }
 
             if (!is_error)
             {
@@ -196,6 +220,24 @@ namespace ESSU_Student_Information_System
                         is_error = true;
                     }
 
+                    if (!validator.IsValidMobileNumber(txt_guardian_mobile_number.Text))
+                    {
+                        error_guardian_mobile_number.SetError(txt_guardian_mobile_number, "Guardian Mobile Number is not valid!");
+
+                        txt_guardian_mobile_number.Focus();
+
+                        is_error = true;
+                    }
+
+                    if (!validator.IsValidEmail(txt_guardian_email.Text))
+                    {
+                        error_guardian_email.SetError(txt_guardian_email, "Guardian Email is not valid!");
+
+                        txt_guardian_email.Focus();
+
+                        is_error = true;
+                    }
+
                     if (!is_error)
                     {
                         loading_counter = 500;
@@ -214,16 +256,6 @@ namespace ESSU_Student_Information_System
         private void txt_student_number_KeyPress(object sender, KeyPressEventArgs e)
         {
             error_student_number.Dispose();
-        }
-
-        private void txt_course_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            error_course.Dispose();
-        }
-
-        private void txt_year_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            error_year.Dispose();
         }
 
         private void txt_section_KeyPress(object sender, KeyPressEventArgs e)
@@ -288,6 +320,41 @@ namespace ESSU_Student_Information_System
             }
         }
 
+        private void txt_guardian_mobile_number_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            error_guardian_mobile_number.Dispose();
+
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_guardian_email_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            error_guardian_email.Dispose();
+        }
+
+        private void txt_guardian_name_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            error_guardian_name.Dispose();
+        }
+
+        private void txt_course_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            error_course.Dispose();
+        }
+
+        private void txt_year_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            error_year.Dispose();
+        }
+
+        private void txt_birthday_ValueChanged(object sender, EventArgs e)
+        {
+            error_birthday.Dispose();
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             loading_counter += 500;
@@ -304,7 +371,7 @@ namespace ESSU_Student_Information_System
                 {
                     string image = Upload_Image(image_path);
 
-                    if (main_model.Mod_Insert_Student(txt_student_number.Text, txt_course.Text, txt_year.Text, txt_section.Text, txt_first_name.Text, txt_middle_name.Text, txt_last_name.Text, txt_birthday.Text, txt_mobile_number.Text, txt_email.Text, txt_address.Text, image))
+                    if (main_model.Mod_Insert_Student(txt_student_number.Text, txt_course.Text, txt_year.Text, txt_section.Text, txt_first_name.Text, txt_middle_name.Text, txt_last_name.Text, txt_birthday.Text, txt_mobile_number.Text, txt_email.Text, txt_address.Text, txt_guardian_name.Text, txt_guardian_mobile_number.Text, txt_guardian_email.Text, image))
                     {
                         _student_records.Display_Data();
 
@@ -343,7 +410,7 @@ namespace ESSU_Student_Information_System
                         image = Path.GetFileName(image_path);
                     }
 
-                    if (main_model.Mod_Update_Student(lbl_student_id.Text, txt_student_number.Text, txt_course.Text, txt_year.Text, txt_section.Text, txt_first_name.Text, txt_middle_name.Text, txt_last_name.Text, txt_birthday.Text, txt_mobile_number.Text, txt_email.Text, txt_address.Text, image))
+                    if (main_model.Mod_Update_Student(lbl_student_id.Text, txt_student_number.Text, txt_course.Text, txt_year.Text, txt_section.Text, txt_first_name.Text, txt_middle_name.Text, txt_last_name.Text, txt_birthday.Text, txt_mobile_number.Text, txt_email.Text, txt_address.Text, txt_guardian_name.Text, txt_guardian_mobile_number.Text, txt_guardian_email.Text, image))
                     {
                         _student_records.Display_Data();
 

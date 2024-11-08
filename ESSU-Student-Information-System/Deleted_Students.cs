@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ESSU_Student_Information_System
 {
     public partial class Deleted_Students : UserControl
     {
+        private string student_id;
+
         public Deleted_Students()
         {
             InitializeComponent();
@@ -100,6 +96,68 @@ namespace ESSU_Student_Information_System
                     lvl_student_list.Items.Add(item);
                 }
             }
+        }
+
+        private void lvl_student_list_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (lvl_student_list.HitTest(e.Location).Item == null)
+            {
+                lvl_student_list.SelectedItems.Clear();
+
+                student_id = null;
+
+                btn_restore_student.Enabled = false;
+            }
+        }
+
+        private void lvl_student_list_Click(object sender, EventArgs e)
+        {
+            student_id = lvl_student_list.SelectedItems[0].Text;
+
+            btn_restore_student.Enabled = true;
+        }
+
+        private void btn_restore_student_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog_result = MessageBox.Show("Do you want to RESTORE this student to active list?", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dialog_result == DialogResult.Yes)
+            {
+                Database_Model database_model = new Database_Model();
+
+                DateTime currentDateTime = DateTime.Now;
+
+                Dictionary<string, object> data = new Dictionary<string, object>
+                {
+                    { "status", "Active" },
+                    { "updated_at", currentDateTime }
+                };
+
+                database_model.Update("students", data, "id", student_id);
+
+                Display_Data();
+
+                lvl_student_list.SelectedItems.Clear();
+
+                student_id = null;
+
+                btn_restore_student.Enabled = false;
+                
+                Logger logger = new Logger();
+
+                logger.Log("A student has been restored to active students.");
+
+                MessageBox.Show("A student has been restored to active students.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void lvl_student_list_DoubleClick(object sender, EventArgs e)
+        {
+            student_id = lvl_student_list.SelectedItems[0].Text;
+
+            btn_restore_student.Enabled = true;
+
+            btn_restore_student.PerformClick();
         }
     }
 }

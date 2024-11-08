@@ -14,13 +14,22 @@ namespace ESSU_Student_Information_System
             InitializeComponent();
         }
 
-        public void More_Info()
+        public void More_Info_Student_Records()
         {
             Set_Active(btn_student_records);
 
             active_page = "Student Records";
 
             user_control_student_records.Display_Data();
+        }
+        
+        public void More_Info_Dropped_Students()
+        {
+            Set_Active(btn_deleted_students);
+
+            active_page = "Deleted Students";
+
+            user_control_deleted_students.Display_Data();
         }
 
         public void Set_Admin_Details()

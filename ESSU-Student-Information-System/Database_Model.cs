@@ -92,7 +92,7 @@ namespace ESSU_Student_Information_System
 
                 if (result_1 == null)
                 {
-                    string sql_2 = "CREATE TABLE `students` (`id` INT AUTO_INCREMENT PRIMARY KEY, `uuid` CHAR(36) NOT NULL, `student_number` VARCHAR(100) NOT NULL UNIQUE, `course` VARCHAR(100) NOT NULL, `year` VARCHAR(100) NOT NULL, `section` VARCHAR(100) NOT NULL, `first_name` VARCHAR(100) NOT NULL, `middle_name` VARCHAR(100) NOT NULL, `last_name` VARCHAR(100) NOT NULL, `birthday` VARCHAR(100) NOT NULL, `mobile_number` VARCHAR(100) NOT NULL, `email` VARCHAR(100) NOT NULL, `address` VARCHAR(100) NOT NULL, `image` VARCHAR(100) NOT NULL, `status` VARCHAR(100) NOT NULL, `created_at` VARCHAR(20) NOT NULL, `updated_at` VARCHAR(20) NOT NULL)";
+                    string sql_2 = "CREATE TABLE `students` (`id` INT AUTO_INCREMENT PRIMARY KEY, `uuid` CHAR(36) NOT NULL, `student_number` VARCHAR(100) NOT NULL UNIQUE, `course` VARCHAR(100) NOT NULL, `year` VARCHAR(100) NOT NULL, `section` VARCHAR(100) NOT NULL, `first_name` VARCHAR(100) NOT NULL, `middle_name` VARCHAR(100) NOT NULL, `last_name` VARCHAR(100) NOT NULL, `birthday` VARCHAR(100) NOT NULL, `mobile_number` VARCHAR(100) NOT NULL, `email` VARCHAR(100) NOT NULL, `address` TEXT NOT NULL, `guardian_name` VARCHAR(100) NOT NULL, `guardian_mobile_number` VARCHAR(11) NOT NULL, `guardian_email` VARCHAR(100) NOT NULL, `image` VARCHAR(100) NOT NULL, `status` VARCHAR(100) NOT NULL, `created_at` VARCHAR(20) NOT NULL, `updated_at` VARCHAR(20) NOT NULL)";
 
                     MySqlCommand cmd_2 = new MySqlCommand(sql_2, conn);
 

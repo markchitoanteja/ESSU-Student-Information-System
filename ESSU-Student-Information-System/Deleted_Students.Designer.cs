@@ -36,6 +36,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.btn_restore_student = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
             this.txt_search = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -78,9 +79,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.label1.Location = new System.Drawing.Point(13, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(239, 31);
+            this.label1.Size = new System.Drawing.Size(249, 31);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Deleted Students";
+            this.label1.Text = "Dropped Students";
             // 
             // panel7
             // 
@@ -111,6 +112,7 @@
             this.panel10.AutoScroll = true;
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel10.Controls.Add(this.btn_restore_student);
             this.panel10.Controls.Add(this.panel11);
             this.panel10.Controls.Add(this.lvl_student_list);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -118,6 +120,24 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(887, 378);
             this.panel10.TabIndex = 14;
+            // 
+            // btn_restore_student
+            // 
+            this.btn_restore_student.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_restore_student.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(135)))), ((int)(((byte)(84)))));
+            this.btn_restore_student.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_restore_student.Enabled = false;
+            this.btn_restore_student.FlatAppearance.BorderSize = 0;
+            this.btn_restore_student.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_restore_student.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_restore_student.ForeColor = System.Drawing.Color.White;
+            this.btn_restore_student.Location = new System.Drawing.Point(730, 336);
+            this.btn_restore_student.Name = "btn_restore_student";
+            this.btn_restore_student.Size = new System.Drawing.Size(150, 35);
+            this.btn_restore_student.TabIndex = 4;
+            this.btn_restore_student.Text = "&Restore Student";
+            this.btn_restore_student.UseVisualStyleBackColor = false;
+            this.btn_restore_student.Click += new System.EventHandler(this.btn_restore_student_Click);
             // 
             // panel11
             // 
@@ -184,11 +204,15 @@
             this.lvl_student_list.GridLines = true;
             this.lvl_student_list.HideSelection = false;
             this.lvl_student_list.Location = new System.Drawing.Point(5, 46);
+            this.lvl_student_list.MultiSelect = false;
             this.lvl_student_list.Name = "lvl_student_list";
-            this.lvl_student_list.Size = new System.Drawing.Size(875, 325);
+            this.lvl_student_list.Size = new System.Drawing.Size(875, 284);
             this.lvl_student_list.TabIndex = 2;
             this.lvl_student_list.UseCompatibleStateImageBehavior = false;
             this.lvl_student_list.View = System.Windows.Forms.View.Details;
+            this.lvl_student_list.Click += new System.EventHandler(this.lvl_student_list_Click);
+            this.lvl_student_list.DoubleClick += new System.EventHandler(this.lvl_student_list_DoubleClick);
+            this.lvl_student_list.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lvl_student_list_MouseDown);
             // 
             // id
             // 
@@ -266,5 +290,6 @@
         private System.Windows.Forms.ColumnHeader course_year_section;
         private System.Windows.Forms.ColumnHeader birthday;
         private System.Windows.Forms.ColumnHeader status;
+        private System.Windows.Forms.Button btn_restore_student;
     }
 }

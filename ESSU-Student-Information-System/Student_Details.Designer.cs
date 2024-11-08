@@ -36,6 +36,13 @@
             this.btn_submit = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.pnl_body = new System.Windows.Forms.Panel();
+            this.txt_guardian_email = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txt_guardian_mobile_number = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txt_guardian_name = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.lbl_student_id = new System.Windows.Forms.Label();
             this.btn_temp = new System.Windows.Forms.Button();
             this.txt_address = new System.Windows.Forms.TextBox();
@@ -73,6 +80,9 @@
             this.error_last_name = new System.Windows.Forms.ErrorProvider(this.components);
             this.error_address = new System.Windows.Forms.ErrorProvider(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.error_guardian_name = new System.Windows.Forms.ErrorProvider(this.components);
+            this.error_guardian_mobile_number = new System.Windows.Forms.ErrorProvider(this.components);
+            this.error_guardian_email = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnl_body.SuspendLayout();
@@ -87,6 +97,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.error_email)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.error_last_name)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.error_address)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_guardian_name)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_guardian_mobile_number)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_guardian_email)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -118,7 +131,7 @@
             this.panel2.Controls.Add(this.btn_submit);
             this.panel2.Controls.Add(this.btn_cancel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 498);
+            this.panel2.Location = new System.Drawing.Point(0, 594);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(798, 50);
             this.panel2.TabIndex = 1;
@@ -134,7 +147,7 @@
             this.btn_submit.Location = new System.Drawing.Point(629, 7);
             this.btn_submit.Name = "btn_submit";
             this.btn_submit.Size = new System.Drawing.Size(150, 35);
-            this.btn_submit.TabIndex = 12;
+            this.btn_submit.TabIndex = 15;
             this.btn_submit.Text = "&Submit";
             this.btn_submit.UseVisualStyleBackColor = false;
             this.btn_submit.Click += new System.EventHandler(this.btn_submit_Click);
@@ -150,7 +163,7 @@
             this.btn_cancel.Location = new System.Drawing.Point(473, 7);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(150, 35);
-            this.btn_cancel.TabIndex = 13;
+            this.btn_cancel.TabIndex = 16;
             this.btn_cancel.Text = "&Cancel";
             this.btn_cancel.UseVisualStyleBackColor = false;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
@@ -159,6 +172,13 @@
             // 
             this.pnl_body.BackColor = System.Drawing.Color.White;
             this.pnl_body.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_body.Controls.Add(this.txt_guardian_email);
+            this.pnl_body.Controls.Add(this.label15);
+            this.pnl_body.Controls.Add(this.txt_guardian_mobile_number);
+            this.pnl_body.Controls.Add(this.label14);
+            this.pnl_body.Controls.Add(this.txt_guardian_name);
+            this.pnl_body.Controls.Add(this.label13);
+            this.pnl_body.Controls.Add(this.label11);
             this.pnl_body.Controls.Add(this.lbl_student_id);
             this.pnl_body.Controls.Add(this.btn_temp);
             this.pnl_body.Controls.Add(this.txt_address);
@@ -188,8 +208,75 @@
             this.pnl_body.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_body.Location = new System.Drawing.Point(0, 40);
             this.pnl_body.Name = "pnl_body";
-            this.pnl_body.Size = new System.Drawing.Size(798, 458);
+            this.pnl_body.Size = new System.Drawing.Size(798, 554);
             this.pnl_body.TabIndex = 2;
+            // 
+            // txt_guardian_email
+            // 
+            this.txt_guardian_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_guardian_email.Location = new System.Drawing.Point(539, 509);
+            this.txt_guardian_email.Name = "txt_guardian_email";
+            this.txt_guardian_email.Size = new System.Drawing.Size(240, 26);
+            this.txt_guardian_email.TabIndex = 14;
+            this.txt_guardian_email.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_guardian_email_KeyPress);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(535, 486);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(122, 20);
+            this.label15.TabIndex = 40;
+            this.label15.Text = "Guardian Email:";
+            // 
+            // txt_guardian_mobile_number
+            // 
+            this.txt_guardian_mobile_number.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_guardian_mobile_number.Location = new System.Drawing.Point(280, 509);
+            this.txt_guardian_mobile_number.Name = "txt_guardian_mobile_number";
+            this.txt_guardian_mobile_number.Size = new System.Drawing.Size(240, 26);
+            this.txt_guardian_mobile_number.TabIndex = 13;
+            this.txt_guardian_mobile_number.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_guardian_mobile_number_KeyPress);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(276, 486);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(189, 20);
+            this.label14.TabIndex = 38;
+            this.label14.Text = "Guardian Mobile Number:";
+            // 
+            // txt_guardian_name
+            // 
+            this.txt_guardian_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_guardian_name.Location = new System.Drawing.Point(21, 509);
+            this.txt_guardian_name.Name = "txt_guardian_name";
+            this.txt_guardian_name.Size = new System.Drawing.Size(240, 26);
+            this.txt_guardian_name.TabIndex = 12;
+            this.txt_guardian_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_guardian_name_KeyPress);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(17, 486);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(125, 20);
+            this.label13.TabIndex = 36;
+            this.label13.Text = "Guardian Name:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(17, 456);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(191, 20);
+            this.label11.TabIndex = 34;
+            this.label11.Text = "In Case of Emergency:";
             // 
             // lbl_student_id
             // 
@@ -238,6 +325,7 @@
             this.txt_birthday.Name = "txt_birthday";
             this.txt_birthday.Size = new System.Drawing.Size(240, 26);
             this.txt_birthday.TabIndex = 8;
+            this.txt_birthday.ValueChanged += new System.EventHandler(this.txt_birthday_ValueChanged);
             this.txt_birthday.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_birthday_KeyPress);
             // 
             // txt_email
@@ -313,7 +401,7 @@
             this.txt_year.Name = "txt_year";
             this.txt_year.Size = new System.Drawing.Size(110, 28);
             this.txt_year.TabIndex = 3;
-            this.txt_year.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_year_KeyPress);
+            this.txt_year.SelectedIndexChanged += new System.EventHandler(this.txt_year_SelectedIndexChanged);
             // 
             // txt_course
             // 
@@ -332,7 +420,7 @@
             this.txt_course.Name = "txt_course";
             this.txt_course.Size = new System.Drawing.Size(240, 28);
             this.txt_course.TabIndex = 2;
-            this.txt_course.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_course_KeyPress);
+            this.txt_course.SelectedIndexChanged += new System.EventHandler(this.txt_course_SelectedIndexChanged);
             // 
             // txt_last_name
             // 
@@ -510,12 +598,24 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // error_guardian_name
+            // 
+            this.error_guardian_name.ContainerControl = this;
+            // 
+            // error_guardian_mobile_number
+            // 
+            this.error_guardian_mobile_number.ContainerControl = this;
+            // 
+            // error_guardian_email
+            // 
+            this.error_guardian_email.ContainerControl = this;
+            // 
             // Student_Details
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(798, 548);
+            this.ClientSize = new System.Drawing.Size(798, 644);
             this.ControlBox = false;
             this.Controls.Add(this.pnl_body);
             this.Controls.Add(this.panel2);
@@ -540,6 +640,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.error_email)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.error_last_name)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.error_address)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_guardian_name)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_guardian_mobile_number)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_guardian_email)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -589,5 +692,15 @@
         private System.Windows.Forms.ErrorProvider error_address;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lbl_student_id;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txt_guardian_name;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txt_guardian_email;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txt_guardian_mobile_number;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ErrorProvider error_guardian_name;
+        private System.Windows.Forms.ErrorProvider error_guardian_mobile_number;
+        private System.Windows.Forms.ErrorProvider error_guardian_email;
     }
 }

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_temp = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -41,6 +42,8 @@
             this.date_and_time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.activity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel11 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.btn_clear_all = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.pnl_cards = new System.Windows.Forms.Panel();
@@ -48,27 +51,25 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
-            this.lbl_non_active_students = new System.Windows.Forms.Label();
+            this.lbl_dropped_students = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pnl_registered_students = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.lbl_registered_students = new System.Windows.Forms.Label();
+            this.lbl_active_students = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnl_active_students = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.lbl_active_students = new System.Windows.Forms.Label();
+            this.lbl_non_active_students = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.btn_clear_all = new System.Windows.Forms.Button();
-            this.btn_temp = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.pnl_cards.SuspendLayout();
             this.pnl_non_active_students.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -79,7 +80,6 @@
             this.pnl_active_students.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
-            this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -91,6 +91,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(927, 50);
             this.panel1.TabIndex = 4;
+            // 
+            // btn_temp
+            // 
+            this.btn_temp.Location = new System.Drawing.Point(287, -40);
+            this.btn_temp.Name = "btn_temp";
+            this.btn_temp.Size = new System.Drawing.Size(75, 23);
+            this.btn_temp.TabIndex = 3;
+            this.btn_temp.Text = "button1";
+            this.btn_temp.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -165,6 +174,7 @@
             this.lv_recent_activities.GridLines = true;
             this.lv_recent_activities.HideSelection = false;
             this.lv_recent_activities.Location = new System.Drawing.Point(19, 46);
+            this.lv_recent_activities.MultiSelect = false;
             this.lv_recent_activities.Name = "lv_recent_activities";
             this.lv_recent_activities.Size = new System.Drawing.Size(846, 168);
             this.lv_recent_activities.TabIndex = 2;
@@ -198,6 +208,32 @@
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(885, 40);
             this.panel11.TabIndex = 1;
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.btn_clear_all);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel12.Location = new System.Drawing.Point(805, 0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(78, 38);
+            this.panel12.TabIndex = 5;
+            this.panel12.Visible = false;
+            // 
+            // btn_clear_all
+            // 
+            this.btn_clear_all.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.btn_clear_all.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_clear_all.FlatAppearance.BorderSize = 0;
+            this.btn_clear_all.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_clear_all.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_clear_all.ForeColor = System.Drawing.Color.White;
+            this.btn_clear_all.Image = ((System.Drawing.Image)(resources.GetObject("btn_clear_all.Image")));
+            this.btn_clear_all.Location = new System.Drawing.Point(9, 4);
+            this.btn_clear_all.Name = "btn_clear_all";
+            this.btn_clear_all.Size = new System.Drawing.Size(50, 30);
+            this.btn_clear_all.TabIndex = 1;
+            this.btn_clear_all.UseVisualStyleBackColor = false;
+            this.btn_clear_all.Click += new System.EventHandler(this.btn_clear_all_Click);
             // 
             // label11
             // 
@@ -238,7 +274,7 @@
             this.pnl_non_active_students.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_non_active_students.Controls.Add(this.pictureBox3);
             this.pnl_non_active_students.Controls.Add(this.panel4);
-            this.pnl_non_active_students.Controls.Add(this.lbl_non_active_students);
+            this.pnl_non_active_students.Controls.Add(this.lbl_dropped_students);
             this.pnl_non_active_students.Controls.Add(this.label4);
             this.pnl_non_active_students.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnl_non_active_students.Location = new System.Drawing.Point(597, 0);
@@ -265,7 +301,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(288, 30);
             this.panel4.TabIndex = 3;
-            this.panel4.Click += new System.EventHandler(this.label8_Click);
+            this.panel4.Click += new System.EventHandler(this.panel4_Click);
             // 
             // label10
             // 
@@ -277,19 +313,19 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(108, 20);
             this.label10.TabIndex = 0;
-            this.label10.Text = "&More Info →";
-            this.label10.Click += new System.EventHandler(this.label8_Click);
+            this.label10.Text = "More Info →";
+            this.label10.Click += new System.EventHandler(this.panel4_Click);
             // 
-            // lbl_non_active_students
+            // lbl_dropped_students
             // 
-            this.lbl_non_active_students.AutoSize = true;
-            this.lbl_non_active_students.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_non_active_students.ForeColor = System.Drawing.Color.White;
-            this.lbl_non_active_students.Location = new System.Drawing.Point(3, 5);
-            this.lbl_non_active_students.Name = "lbl_non_active_students";
-            this.lbl_non_active_students.Size = new System.Drawing.Size(40, 42);
-            this.lbl_non_active_students.TabIndex = 2;
-            this.lbl_non_active_students.Text = "0";
+            this.lbl_dropped_students.AutoSize = true;
+            this.lbl_dropped_students.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_dropped_students.ForeColor = System.Drawing.Color.White;
+            this.lbl_dropped_students.Location = new System.Drawing.Point(3, 5);
+            this.lbl_dropped_students.Name = "lbl_dropped_students";
+            this.lbl_dropped_students.Size = new System.Drawing.Size(40, 42);
+            this.lbl_dropped_students.TabIndex = 2;
+            this.lbl_dropped_students.Text = "0";
             // 
             // label4
             // 
@@ -298,17 +334,17 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(6, 52);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(174, 20);
+            this.label4.Size = new System.Drawing.Size(156, 20);
             this.label4.TabIndex = 1;
-            this.label4.Text = "Non-Active Students";
+            this.label4.Text = "Dropped Students";
             // 
             // pnl_registered_students
             // 
-            this.pnl_registered_students.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(110)))), ((int)(((byte)(253)))));
+            this.pnl_registered_students.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(135)))), ((int)(((byte)(84)))));
             this.pnl_registered_students.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_registered_students.Controls.Add(this.pictureBox1);
             this.pnl_registered_students.Controls.Add(this.panel2);
-            this.pnl_registered_students.Controls.Add(this.lbl_registered_students);
+            this.pnl_registered_students.Controls.Add(this.lbl_active_students);
             this.pnl_registered_students.Controls.Add(this.label2);
             this.pnl_registered_students.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnl_registered_students.Location = new System.Drawing.Point(0, 0);
@@ -347,19 +383,19 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(108, 20);
             this.label8.TabIndex = 0;
-            this.label8.Text = "&More Info →";
+            this.label8.Text = "More Info →";
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
-            // lbl_registered_students
+            // lbl_active_students
             // 
-            this.lbl_registered_students.AutoSize = true;
-            this.lbl_registered_students.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_registered_students.ForeColor = System.Drawing.Color.White;
-            this.lbl_registered_students.Location = new System.Drawing.Point(3, 5);
-            this.lbl_registered_students.Name = "lbl_registered_students";
-            this.lbl_registered_students.Size = new System.Drawing.Size(40, 42);
-            this.lbl_registered_students.TabIndex = 1;
-            this.lbl_registered_students.Text = "0";
+            this.lbl_active_students.AutoSize = true;
+            this.lbl_active_students.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_active_students.ForeColor = System.Drawing.Color.White;
+            this.lbl_active_students.Location = new System.Drawing.Point(3, 5);
+            this.lbl_active_students.Name = "lbl_active_students";
+            this.lbl_active_students.Size = new System.Drawing.Size(40, 42);
+            this.lbl_active_students.TabIndex = 1;
+            this.lbl_active_students.Text = "0";
             // 
             // label2
             // 
@@ -368,17 +404,17 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(6, 52);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(175, 20);
+            this.label2.Size = new System.Drawing.Size(136, 20);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Registered Students";
+            this.label2.Text = "Active Students";
             // 
             // pnl_active_students
             // 
-            this.pnl_active_students.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(135)))), ((int)(((byte)(84)))));
+            this.pnl_active_students.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
             this.pnl_active_students.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_active_students.Controls.Add(this.pictureBox2);
             this.pnl_active_students.Controls.Add(this.panel3);
-            this.pnl_active_students.Controls.Add(this.lbl_active_students);
+            this.pnl_active_students.Controls.Add(this.lbl_non_active_students);
             this.pnl_active_students.Controls.Add(this.label3);
             this.pnl_active_students.Location = new System.Drawing.Point(298, 0);
             this.pnl_active_students.Name = "pnl_active_students";
@@ -416,19 +452,19 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(108, 20);
             this.label9.TabIndex = 0;
-            this.label9.Text = "&More Info →";
+            this.label9.Text = "More Info →";
             this.label9.Click += new System.EventHandler(this.label8_Click);
             // 
-            // lbl_active_students
+            // lbl_non_active_students
             // 
-            this.lbl_active_students.AutoSize = true;
-            this.lbl_active_students.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_active_students.ForeColor = System.Drawing.Color.White;
-            this.lbl_active_students.Location = new System.Drawing.Point(3, 5);
-            this.lbl_active_students.Name = "lbl_active_students";
-            this.lbl_active_students.Size = new System.Drawing.Size(40, 42);
-            this.lbl_active_students.TabIndex = 2;
-            this.lbl_active_students.Text = "0";
+            this.lbl_non_active_students.AutoSize = true;
+            this.lbl_non_active_students.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_non_active_students.ForeColor = System.Drawing.Color.White;
+            this.lbl_non_active_students.Location = new System.Drawing.Point(3, 5);
+            this.lbl_non_active_students.Name = "lbl_non_active_students";
+            this.lbl_non_active_students.Size = new System.Drawing.Size(40, 42);
+            this.lbl_non_active_students.TabIndex = 2;
+            this.lbl_non_active_students.Text = "0";
             // 
             // label3
             // 
@@ -437,43 +473,9 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(6, 52);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(136, 20);
+            this.label3.Size = new System.Drawing.Size(174, 20);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Active Students";
-            // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.btn_clear_all);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel12.Location = new System.Drawing.Point(805, 0);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(78, 38);
-            this.panel12.TabIndex = 5;
-            // 
-            // btn_clear_all
-            // 
-            this.btn_clear_all.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
-            this.btn_clear_all.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_clear_all.FlatAppearance.BorderSize = 0;
-            this.btn_clear_all.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_clear_all.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_clear_all.ForeColor = System.Drawing.Color.White;
-            this.btn_clear_all.Image = ((System.Drawing.Image)(resources.GetObject("btn_clear_all.Image")));
-            this.btn_clear_all.Location = new System.Drawing.Point(9, 4);
-            this.btn_clear_all.Name = "btn_clear_all";
-            this.btn_clear_all.Size = new System.Drawing.Size(50, 30);
-            this.btn_clear_all.TabIndex = 1;
-            this.btn_clear_all.UseVisualStyleBackColor = false;
-            this.btn_clear_all.Click += new System.EventHandler(this.btn_clear_all_Click);
-            // 
-            // btn_temp
-            // 
-            this.btn_temp.Location = new System.Drawing.Point(287, -40);
-            this.btn_temp.Name = "btn_temp";
-            this.btn_temp.Size = new System.Drawing.Size(75, 23);
-            this.btn_temp.TabIndex = 3;
-            this.btn_temp.Text = "button1";
-            this.btn_temp.UseVisualStyleBackColor = true;
+            this.label3.Text = "Non-Active Students";
             // 
             // Dashboard
             // 
@@ -494,6 +496,7 @@
             this.panel10.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            this.panel12.ResumeLayout(false);
             this.pnl_cards.ResumeLayout(false);
             this.pnl_non_active_students.ResumeLayout(false);
             this.pnl_non_active_students.PerformLayout();
@@ -510,7 +513,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel12.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -528,19 +530,19 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label lbl_non_active_students;
+        private System.Windows.Forms.Label lbl_dropped_students;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel pnl_registered_students;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lbl_registered_students;
+        private System.Windows.Forms.Label lbl_active_students;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pnl_active_students;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label lbl_active_students;
+        private System.Windows.Forms.Label lbl_non_active_students;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel10;

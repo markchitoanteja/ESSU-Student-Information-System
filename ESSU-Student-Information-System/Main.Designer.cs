@@ -30,6 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.pnl_sidebar = new System.Windows.Forms.Panel();
+            this.btn_logout = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.btn_account_settings = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btn_deleted_students = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.btn_student_records = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -56,23 +68,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pnl_body = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.btn_deleted_students = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.btn_logout = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.btn_account_settings = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel8 = new System.Windows.Forms.Panel();
             this.user_control_dashboard = new ESSU_Student_Information_System.Dashboard();
             this.user_control_account_settings = new ESSU_Student_Information_System.Account_Settings();
             this.user_control_student_records = new ESSU_Student_Information_System.Student_Records();
             this.user_control_deleted_students = new ESSU_Student_Information_System.Deleted_Students();
             this.pnl_sidebar.SuspendLayout();
+            this.btn_logout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.btn_account_settings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.btn_deleted_students.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.btn_student_records.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.btn_dashboard.SuspendLayout();
@@ -88,12 +94,6 @@
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.pnl_body.SuspendLayout();
-            this.btn_deleted_students.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.btn_logout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.btn_account_settings.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pnl_sidebar
@@ -117,6 +117,153 @@
             this.pnl_sidebar.Name = "pnl_sidebar";
             this.pnl_sidebar.Size = new System.Drawing.Size(255, 561);
             this.pnl_sidebar.TabIndex = 0;
+            // 
+            // btn_logout
+            // 
+            this.btn_logout.Controls.Add(this.label9);
+            this.btn_logout.Controls.Add(this.pictureBox4);
+            this.btn_logout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_logout.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_logout.Location = new System.Drawing.Point(0, 385);
+            this.btn_logout.Name = "btn_logout";
+            this.btn_logout.Size = new System.Drawing.Size(253, 50);
+            this.btn_logout.TabIndex = 16;
+            this.btn_logout.Click += new System.EventHandler(this.pictureBox4_Click);
+            this.btn_logout.MouseEnter += new System.EventHandler(this.pictureBox4_MouseEnter);
+            this.btn_logout.MouseLeave += new System.EventHandler(this.pictureBox4_MouseLeave);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(59, 15);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 20);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Logout";
+            this.label9.Click += new System.EventHandler(this.pictureBox4_Click);
+            this.label9.MouseEnter += new System.EventHandler(this.pictureBox4_MouseEnter);
+            this.label9.MouseLeave += new System.EventHandler(this.pictureBox4_MouseLeave);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(16, 10);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 0;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            this.pictureBox4.MouseEnter += new System.EventHandler(this.pictureBox4_MouseEnter);
+            this.pictureBox4.MouseLeave += new System.EventHandler(this.pictureBox4_MouseLeave);
+            // 
+            // panel10
+            // 
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(0, 375);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(253, 10);
+            this.panel10.TabIndex = 15;
+            // 
+            // btn_account_settings
+            // 
+            this.btn_account_settings.Controls.Add(this.label8);
+            this.btn_account_settings.Controls.Add(this.pictureBox2);
+            this.btn_account_settings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_account_settings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_account_settings.Location = new System.Drawing.Point(0, 325);
+            this.btn_account_settings.Name = "btn_account_settings";
+            this.btn_account_settings.Size = new System.Drawing.Size(253, 50);
+            this.btn_account_settings.TabIndex = 14;
+            this.btn_account_settings.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.btn_account_settings.MouseEnter += new System.EventHandler(this.pictureBox2_MouseEnter);
+            this.btn_account_settings.MouseLeave += new System.EventHandler(this.pictureBox2_MouseLeave);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(59, 15);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(131, 20);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Account Settings";
+            this.label8.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.label8.MouseEnter += new System.EventHandler(this.pictureBox2_MouseEnter);
+            this.label8.MouseLeave += new System.EventHandler(this.pictureBox2_MouseLeave);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(16, 10);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.pictureBox2.MouseEnter += new System.EventHandler(this.pictureBox2_MouseEnter);
+            this.pictureBox2.MouseLeave += new System.EventHandler(this.pictureBox2_MouseLeave);
+            // 
+            // panel8
+            // 
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(0, 315);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(253, 10);
+            this.panel8.TabIndex = 13;
+            // 
+            // btn_deleted_students
+            // 
+            this.btn_deleted_students.Controls.Add(this.label10);
+            this.btn_deleted_students.Controls.Add(this.pictureBox5);
+            this.btn_deleted_students.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_deleted_students.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_deleted_students.Location = new System.Drawing.Point(0, 265);
+            this.btn_deleted_students.Name = "btn_deleted_students";
+            this.btn_deleted_students.Size = new System.Drawing.Size(253, 50);
+            this.btn_deleted_students.TabIndex = 12;
+            this.btn_deleted_students.Click += new System.EventHandler(this.pictureBox5_Click);
+            this.btn_deleted_students.MouseEnter += new System.EventHandler(this.pictureBox5_MouseEnter);
+            this.btn_deleted_students.MouseLeave += new System.EventHandler(this.pictureBox5_MouseLeave);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(59, 15);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(140, 20);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Dropped Students";
+            this.label10.Click += new System.EventHandler(this.pictureBox5_Click);
+            this.label10.MouseEnter += new System.EventHandler(this.pictureBox5_MouseEnter);
+            this.label10.MouseLeave += new System.EventHandler(this.pictureBox5_MouseLeave);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(16, 10);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            this.pictureBox5.MouseEnter += new System.EventHandler(this.pictureBox5_MouseEnter);
+            this.pictureBox5.MouseLeave += new System.EventHandler(this.pictureBox5_MouseLeave);
+            // 
+            // panel4
+            // 
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 255);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(253, 10);
+            this.panel4.TabIndex = 11;
             // 
             // btn_student_records
             // 
@@ -415,153 +562,6 @@
             this.pnl_body.Size = new System.Drawing.Size(929, 450);
             this.pnl_body.TabIndex = 3;
             // 
-            // panel4
-            // 
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 255);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(253, 10);
-            this.panel4.TabIndex = 11;
-            // 
-            // btn_deleted_students
-            // 
-            this.btn_deleted_students.Controls.Add(this.label10);
-            this.btn_deleted_students.Controls.Add(this.pictureBox5);
-            this.btn_deleted_students.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_deleted_students.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_deleted_students.Location = new System.Drawing.Point(0, 265);
-            this.btn_deleted_students.Name = "btn_deleted_students";
-            this.btn_deleted_students.Size = new System.Drawing.Size(253, 50);
-            this.btn_deleted_students.TabIndex = 12;
-            this.btn_deleted_students.Click += new System.EventHandler(this.pictureBox5_Click);
-            this.btn_deleted_students.MouseEnter += new System.EventHandler(this.pictureBox5_MouseEnter);
-            this.btn_deleted_students.MouseLeave += new System.EventHandler(this.pictureBox5_MouseLeave);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(59, 15);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(134, 20);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Deleted Students";
-            this.label10.Click += new System.EventHandler(this.pictureBox5_Click);
-            this.label10.MouseEnter += new System.EventHandler(this.pictureBox5_MouseEnter);
-            this.label10.MouseLeave += new System.EventHandler(this.pictureBox5_MouseLeave);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(16, 10);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 0;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
-            this.pictureBox5.MouseEnter += new System.EventHandler(this.pictureBox5_MouseEnter);
-            this.pictureBox5.MouseLeave += new System.EventHandler(this.pictureBox5_MouseLeave);
-            // 
-            // btn_logout
-            // 
-            this.btn_logout.Controls.Add(this.label9);
-            this.btn_logout.Controls.Add(this.pictureBox4);
-            this.btn_logout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_logout.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_logout.Location = new System.Drawing.Point(0, 385);
-            this.btn_logout.Name = "btn_logout";
-            this.btn_logout.Size = new System.Drawing.Size(253, 50);
-            this.btn_logout.TabIndex = 16;
-            this.btn_logout.Click += new System.EventHandler(this.pictureBox4_Click);
-            this.btn_logout.MouseEnter += new System.EventHandler(this.pictureBox4_MouseEnter);
-            this.btn_logout.MouseLeave += new System.EventHandler(this.pictureBox4_MouseLeave);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(59, 15);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 20);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Logout";
-            this.label9.Click += new System.EventHandler(this.pictureBox4_Click);
-            this.label9.MouseEnter += new System.EventHandler(this.pictureBox4_MouseEnter);
-            this.label9.MouseLeave += new System.EventHandler(this.pictureBox4_MouseLeave);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(16, 10);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
-            this.pictureBox4.MouseEnter += new System.EventHandler(this.pictureBox4_MouseEnter);
-            this.pictureBox4.MouseLeave += new System.EventHandler(this.pictureBox4_MouseLeave);
-            // 
-            // panel10
-            // 
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel10.Location = new System.Drawing.Point(0, 375);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(253, 10);
-            this.panel10.TabIndex = 15;
-            // 
-            // btn_account_settings
-            // 
-            this.btn_account_settings.Controls.Add(this.label8);
-            this.btn_account_settings.Controls.Add(this.pictureBox2);
-            this.btn_account_settings.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_account_settings.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_account_settings.Location = new System.Drawing.Point(0, 325);
-            this.btn_account_settings.Name = "btn_account_settings";
-            this.btn_account_settings.Size = new System.Drawing.Size(253, 50);
-            this.btn_account_settings.TabIndex = 14;
-            this.btn_account_settings.Click += new System.EventHandler(this.pictureBox2_Click);
-            this.btn_account_settings.MouseEnter += new System.EventHandler(this.pictureBox2_MouseEnter);
-            this.btn_account_settings.MouseLeave += new System.EventHandler(this.pictureBox2_MouseLeave);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(59, 15);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(131, 20);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Account Settings";
-            this.label8.Click += new System.EventHandler(this.pictureBox2_Click);
-            this.label8.MouseEnter += new System.EventHandler(this.pictureBox2_MouseEnter);
-            this.label8.MouseLeave += new System.EventHandler(this.pictureBox2_MouseLeave);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(16, 10);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            this.pictureBox2.MouseEnter += new System.EventHandler(this.pictureBox2_MouseEnter);
-            this.pictureBox2.MouseLeave += new System.EventHandler(this.pictureBox2_MouseLeave);
-            // 
-            // panel8
-            // 
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 315);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(253, 10);
-            this.panel8.TabIndex = 13;
-            // 
             // user_control_dashboard
             // 
             this.user_control_dashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(77)))), ((int)(((byte)(85)))));
@@ -617,6 +617,15 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
             this.pnl_sidebar.ResumeLayout(false);
+            this.btn_logout.ResumeLayout(false);
+            this.btn_logout.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.btn_account_settings.ResumeLayout(false);
+            this.btn_account_settings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.btn_deleted_students.ResumeLayout(false);
+            this.btn_deleted_students.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.btn_student_records.ResumeLayout(false);
             this.btn_student_records.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -638,15 +647,6 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.pnl_body.ResumeLayout(false);
-            this.btn_deleted_students.ResumeLayout(false);
-            this.btn_deleted_students.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.btn_logout.ResumeLayout(false);
-            this.btn_logout.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.btn_account_settings.ResumeLayout(false);
-            this.btn_account_settings.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -14,9 +14,9 @@ namespace ESSU_Student_Information_System
         {
             Database_Model database_model = new Database_Model();
 
-            lbl_registered_students.Text = database_model.Count_All("students").ToString();
             lbl_active_students.Text = database_model.Count_Items("students", "status", "Active").ToString();
             lbl_non_active_students.Text = database_model.Count_Items("students", "status", "Inactive").ToString();
+            lbl_dropped_students.Text = database_model.Count_Items("students", "status", "Deleted").ToString();
 
             var logs = database_model.Get_All("logs", "id", "DESC");
 
@@ -69,13 +69,6 @@ namespace ESSU_Student_Information_System
             }
         }
 
-        private void label8_Click(object sender, EventArgs e)
-        {
-            Main main = FindForm() as Main;
-
-            main.More_Info();
-        }
-
         private void btn_clear_all_Click(object sender, EventArgs e)
         {
             btn_temp.Focus();
@@ -92,6 +85,20 @@ namespace ESSU_Student_Information_System
 
                 MessageBox.Show("Recent Activities has been cleared.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            Main main = FindForm() as Main;
+
+            main.More_Info_Student_Records();
+        }
+
+        private void panel4_Click(object sender, EventArgs e)
+        {
+            Main main = FindForm() as Main;
+
+            main.More_Info_Dropped_Students();
         }
     }
 }
